@@ -2,8 +2,8 @@
 #include <unistd.h>
 
 /**
- *
- *
+ * main - PPID
+ * Return: 0
  */
 
 int main ()
