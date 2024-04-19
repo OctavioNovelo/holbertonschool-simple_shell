@@ -8,12 +8,14 @@
 void execute_command(char *command) {
     pid_t pid;
     int status;
-
+    char *args[2];
+    
     pid = fork();
 
     if (pid == 0)
       {
-	char *args[] = {command, NULL};
+	args[0] = command;
+	args[1] = NULL;
 	
 	if (execv(command, args) == -1)
 	  {
