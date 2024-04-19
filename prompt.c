@@ -29,10 +29,16 @@ void prompt()
 	  break;
 	}
       /** Aqui hay que poner la logica de las funciones **/
-      if (strcmp(line, "ls") == 0)
+      if (strchr(line, '/') != NULL) {
+            execute_command(line);
+        }
+      else
 	{
-	  ls();
-	}
+	  if (strcmp(line, "ls") == 0)
+	    {
+	    execute_command("/bin/ls");
+	    }
+        }
     }
 printf("You entered: %s\n", line);
 free(line);

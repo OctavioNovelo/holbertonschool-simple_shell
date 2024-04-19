@@ -7,8 +7,8 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdio.h>
+#include <sys/types.h>
 #include <dirent.h>
 void prompt();
-void execute_command(const char *command);
-void ls();
+void execute_command(char *command);
 #endif /* MAIN_H */
