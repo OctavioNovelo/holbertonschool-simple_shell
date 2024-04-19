@@ -24,11 +24,15 @@ void prompt()
 	line[str - 1] = '\0';
       }
 
-      if (strcmp(line, "EXIT") == 0)
+      if (strcmp(line, "EXIT") == 0 || strcmp(line, "exit") == 0)
 	{
 	  break;
 	}
       /** Aqui hay que poner la logica de las funciones **/
+      if (strcmp(line, "ls") == 0)
+	{
+	  ls();
+	}
     }
 printf("You entered: %s\n", line);
 free(line);

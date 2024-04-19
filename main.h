@@ -6,8 +6,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-
+#include <stdio.h>
+#include <dirent.h>
 void prompt();
 void execute_command(const char *command);
-
+void ls();
 #endif /* MAIN_H */
