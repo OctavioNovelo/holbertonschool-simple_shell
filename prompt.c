@@ -36,9 +36,13 @@ void prompt()
 	{
 	  if (strcmp(line, "ls") == 0)
 	    {
-	    execute_command("/bin/ls");
+	    execute_command(line);
 	    }
         }
+      if (strcmp(line, "pwd") == 0)
+	{
+	  execute_command(line);
+	}
     }
 printf("You entered: %s\n", line);
 free(line);
