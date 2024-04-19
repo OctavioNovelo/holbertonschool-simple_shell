@@ -13,7 +13,9 @@ void execute_command(char *command) {
 
     if (pid == 0)
       {
-	if (execv(command, (char *const []){command, NULL}) == -1)
+	char *args[] = {command, NULL};
+	
+	if (execv(command, args) == -1)
 	  {
             perror("Error executing command");
 	    exit(EXIT_FAILURE);
