@@ -45,6 +45,5 @@ void prompt()
 	  execute_command(line);
 	}
     }
-printf("You entered: %s\n", line);
 free(line);
 }
