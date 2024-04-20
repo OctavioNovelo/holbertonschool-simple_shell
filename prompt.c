@@ -41,6 +41,7 @@ void prompt()
 	  if (strcmp(line, "ls") == 0)
 	    {
 	      ls();
+	      break;
 	    }
         }
       if (strcmp(line, "pwd") == 0)
