@@ -8,9 +8,11 @@ void prompt()
   char *line = NULL;
   size_t len = 0;
   ssize_t str;
+
+  printf("root@prueba# ");
+
   while (1)
     {
-      printf("root@prueba# ");
       str = getline(&line, &len, stdin);
 
       if (str == -1)
@@ -46,5 +48,6 @@ void prompt()
 	}
       free(line);
       line = NULL;
+      printf("root@prueba# ");
     }
 }
