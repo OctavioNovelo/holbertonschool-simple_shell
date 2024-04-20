@@ -11,4 +11,5 @@
 #include <dirent.h>
 void prompt();
 void execute_command(char *command);
+void ls();
 #endif /* MAIN_H */
