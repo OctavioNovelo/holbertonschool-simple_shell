@@ -34,6 +34,7 @@ void prompt()
       if (strchr(line, '/') != NULL)
 	{
             execute_command(line);
+	    break;
         }
       else
 	{
