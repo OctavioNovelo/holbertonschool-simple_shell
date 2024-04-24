@@ -11,7 +11,6 @@ void prompt()
 
   while (1)
     {
-      printf("root@prueba# ");
       str = getline(&line, &len, stdin);
 
       if (str == -1)
