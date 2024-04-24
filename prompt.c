@@ -42,8 +42,8 @@ void prompt()
 	{
 	  execute_command(line);
 	}
-      
-      free(line);
-      line = NULL;
     }
+
+  free(line);
+  line = NULL;
 }
