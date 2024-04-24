@@ -25,6 +25,7 @@ void prompt()
 
       if (strcmp(line, "EXIT") == 0 || strcmp(line, "exit") == 0)
 	{
+	  free(line);
 	  break;
 	}
       
@@ -33,17 +34,15 @@ void prompt()
 	{
             execute_command(line);
         }
-      else
+      else if (strcmp(line, "ls") == 0)
 	{
-	  if (strcmp(line, "ls") == 0)
-	    {
 	      ls();
-	    }
-        }
-      if (strcmp(line, "pwd") == 0)
+	}
+      else if (strcmp(line, "pwd") == 0)
 	{
 	  execute_command(line);
 	}
+      
       free(line);
       line = NULL;
     }
