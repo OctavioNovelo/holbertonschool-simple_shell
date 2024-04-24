@@ -9,10 +9,9 @@ void prompt()
   size_t len = 0;
   ssize_t str;
 
-  printf("root@prueba# ");
-
   while (1)
     {
+      printf("root@prueba# ");
       str = getline(&line, &len, stdin);
 
       if (str == -1)
@@ -34,14 +33,12 @@ void prompt()
       if (strchr(line, '/') != NULL)
 	{
             execute_command(line);
-	    break;
         }
       else
 	{
 	  if (strcmp(line, "ls") == 0)
 	    {
 	      ls();
-	      break;
 	    }
         }
       if (strcmp(line, "pwd") == 0)
@@ -50,6 +47,5 @@ void prompt()
 	}
       free(line);
       line = NULL;
-      printf("root@prueba# ");
     }
 }
