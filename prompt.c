@@ -25,7 +25,6 @@ void prompt()
 
       if (strcmp(line, "EXIT") == 0 || strcmp(line, "exit") == 0)
 	{
-	  free(line);
 	  break;
 	}
       
@@ -45,4 +44,5 @@ void prompt()
     }
 
   free(line);
+  line = NULL;
 }
