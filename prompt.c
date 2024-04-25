@@ -9,6 +9,7 @@ void prompt()
   size_t len = 0;
   ssize_t str;
   char *token;
+
   while (1)
     {
       str = getline(&line, &len, stdin);

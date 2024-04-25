@@ -10,6 +10,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <libgen.h>
+#include <errno.h>
 void prompt();
 void execute_command(char *command);
 void ls();
