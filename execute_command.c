@@ -9,6 +9,7 @@ void execute_command(char *command) {
     pid_t pid;
     int status;
     char *args[2];
+    int exit_status;
     
     pid = fork();
 
@@ -30,19 +31,29 @@ void execute_command(char *command) {
 	exit(EXIT_FAILURE);
       }
     else
-    {
+      {
         waitpid(pid, &status, 0);
-    }
+      }
+    
     if (WIFEXITED(status))
     {
-      if (WEXITSTATUS(status) == EXIT_SUCCESS)
+      exit_status = WEXITSTATUS(status);
+      
+      if (exit_status == EXIT_SUCCESS)
         {
 	  /** Comando exitoso **/
         }
       else
         {
 	  /** Comando fallido **/
+	  printf("%d: %s\n", exit_status, command);
 	  exit(EXIT_FAILURE);
         }
     }
+    
+    else
+      {
+	printf("%s\n", command);
+	exit(EXIT_FAILURE);
+      }
 }
