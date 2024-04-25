@@ -5,11 +5,11 @@
  * @command: A string
  */
 
-void execute_command(char *command) {
+void execute_command(char *command)
+{
     pid_t pid;
     int status;
     char *args[2];
-    int exit_status;
     
     pid = fork();
 
@@ -36,20 +36,17 @@ void execute_command(char *command) {
       }
     
     if (WIFEXITED(status))
-    {
-      exit_status = WEXITSTATUS(status);
-      
-      if (exit_status == EXIT_SUCCESS)
-        {
-	  /** Comando exitoso **/
-        }
-      else
-        {
-	  /** Comando fallido **/
-	  printf("%d: %s\n", exit_status, command);
-	  exit(EXIT_FAILURE);
-        }
-    }
+      { 
+	if (WIFEXITED(status) == EXIT_SUCCESS)
+	  {
+	    /** Comando exitoso **/
+	  }
+	else
+	  {
+	    /** Comando fallido **/
+	    printf("%s\n", command);
+	  }
+      }
     
     else
       {
