@@ -25,7 +25,6 @@ void prompt()
 
       if (strcmp(line, "EXIT") == 0 || strcmp(line, "exit") == 0)
 	{
-	  printf("/bin/ls: cannot access '/test_hbtn': No such file or directory");
 	  break;
 	}
       
