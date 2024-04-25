@@ -19,7 +19,7 @@ void execute_command(char *command) {
 	
 	if (execv(command, args) == -1)
 	  {
-            perror("/bin/ls: cannot access '/test_hbtn'");
+            perror(command);
 	    exit(EXIT_FAILURE);
 	  }
       }
@@ -27,11 +27,23 @@ void execute_command(char *command) {
     else if (pid < 0)
       {
         perror("Fork failed");
+	exit(EXIT_FAILURE);
       }
     else
       {
         do {
             waitpid(pid, &status, WUNTRACED);
         } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+      }
+    if (WIFEXITED(status))
+    {
+        if (WEXITSTATUS(status) == EXIT_SUCCESS)
+        {
+	  /** Exit success **/
+	}
+        else
+        {
+            printf("Command failed: %s\n", command);
+        }
     }
 }
