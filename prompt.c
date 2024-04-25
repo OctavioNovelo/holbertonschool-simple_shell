@@ -8,7 +8,7 @@ void prompt()
   char *line = NULL;
   size_t len = 0;
   ssize_t str;
-
+  char *token;
   while (1)
     {
       str = getline(&line, &len, stdin);
@@ -28,7 +28,7 @@ void prompt()
 	  break;
 	}
 
-      char *token = strtok(line, " ");
+      token = strtok(line, " ");
       while (token != NULL)
 	{
 	  /** Aqui hay que poner la logica de las funciones **/
