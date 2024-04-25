@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <libgen.h>
 void prompt();
 void execute_command(char *command);
 void ls();
