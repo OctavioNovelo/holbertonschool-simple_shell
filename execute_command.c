@@ -42,7 +42,6 @@ void execute_command(char *command) {
       else
         {
 	  /** Comando fallido **/
-          printf("Command failed: %s\n", command);
 	  exit(EXIT_FAILURE);
         }
     }
