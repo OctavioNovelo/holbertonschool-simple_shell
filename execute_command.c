@@ -27,11 +27,23 @@ void execute_command(char *command) {
     else if (pid < 0)
       {
         perror("Fork failed");
+	exit(EXIT_FAILURE);
       }
     else
-      {
-        do {
-            waitpid(pid, &status, WUNTRACED);
-        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+    {
+        waitpid(pid, &status, 0);
+    }
+    if (WIFEXITED(status))
+    {
+      if (WEXITSTATUS(status) == EXIT_SUCCESS)
+        {
+            // Comando exitoso
+        }
+      else
+        {
+            // Comando fallido
+            printf("Command failed: %s\n", command);
+	    exit(EXIT_FAILURE);
+        }
     }
 }
