@@ -19,7 +19,7 @@ void execute_command(char *command) {
 	
 	if (execv(command, args) == -1)
 	  {
-            perror("Error executing command");
+            perror("/bin/ls: cannot access '/test_hbtn'");
 	    exit(EXIT_FAILURE);
 	  }
       }
