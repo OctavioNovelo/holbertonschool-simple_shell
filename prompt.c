@@ -45,5 +45,4 @@ void prompt()
     }
 
   free(line);
-  line = NULL;
 }
