@@ -37,13 +37,13 @@ void execute_command(char *command) {
     {
       if (WEXITSTATUS(status) == EXIT_SUCCESS)
         {
-            // Comando exitoso
+	  /** Comando exitoso **/
         }
       else
         {
-            // Comando fallido
-            printf("Command failed: %s\n", command);
-	    exit(EXIT_FAILURE);
+	  /** Comando fallido **/
+          printf("Command failed: %s\n", command);
+	  exit(EXIT_FAILURE);
         }
     }
 }
