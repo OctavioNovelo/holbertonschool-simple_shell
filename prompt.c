@@ -1,59 +1,53 @@
 #include "main.h"
-
 /**
- * prompt - print the prompt
+ *prompt - print the prompt
+ *
  */
 void prompt()
 {
-    char *line = NULL;
-    size_t len = 0;
-    ssize_t str;
-    char *token;
-    
-    while (1)
-    {        
-        str = getline(&line, &len, stdin);
-        
-        if (str == -1)
+  char *line = NULL;
+  size_t len = 0;
+  ssize_t str;
+  char *token;
+  while (1)
+    {
+      str = getline(&line, &len, stdin);
+
+      if (str == -1)
         {
-            break;
+          break;
         }
-        
-        if (line[str - 1] == '\n')
+
+      if (line[str - 1] == '\n')
         {
-            line[str - 1] = '\0';
+          line[str - 1] = '\0';
         }
-        
-        if (strcmp(line, "EXIT") == 0 || strcmp(line, "exit") == 0)
+
+      if (strcmp(line, "EXIT") == 0 || strcmp(line, "exit") == 0)
         {
-            break;
+          break;
         }
-        
-        token = strtok(line, " ");
-        
-        while (token != NULL)
+
+      token = strtok(line, " ");
+      while (token != NULL)
         {
-            if (strcmp(token, "ls") == 0 || strcmp(token, "pwd") == 0)
+          /** Aqui hay que poner la logica de las funciones **/
+           if (strcmp(token, "ls") == 0 || strcmp(token, "pwd") == 0)
             {
                 execute_command(token);
             }
             else if (strchr(token, '/') != NULL)
             {
-                char *command_path = strdup(token); 
-                char *command_name = basename(command_path); 
-                
-                execute_command(command_name);
-                
-                free(command_path); 
+                execute_command(token);
             }
             else
             {
                 printf("Command not found: %s\n", token);
             }
-            
             token = strtok(NULL, " ");
         }
     }
-    
-    free(line);
+
+  free(line);
+  line = NULL;
 }
