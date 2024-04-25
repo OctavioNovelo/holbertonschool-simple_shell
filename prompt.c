@@ -27,19 +27,24 @@ void prompt()
 	{
 	  break;
 	}
-      
-      /** Aqui hay que poner la logica de las funciones **/
-      if (strchr(line, '/') != NULL)
+
+      char *token = strtok(line, " ");
+      while (token != NULL)
 	{
-            execute_command(line);
-        }
-      else if (strcmp(line, "ls") == 0)
-	{
-	      ls();
-	}
-      else if (strcmp(line, "pwd") == 0)
-	{
-	  execute_command(line);
+	  /** Aqui hay que poner la logica de las funciones **/
+	   if (strcmp(token, "ls") == 0 || strcmp(token, "pwd") == 0)
+            {
+                execute_command(token);
+            }
+            else if (strchr(token, '/') != NULL)
+            {
+                execute_command(token);
+            }
+            else
+            {
+                printf("Command not found: %s\n", token);
+            }
+            token = strtok(NULL, " ");
 	}
     }
 
