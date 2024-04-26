@@ -12,6 +12,6 @@
 #include <libgen.h>
 #include <errno.h>
 void prompt();
-void execute_command(char **args);
+void execute_command(char *command);
 void ls();
 #endif /* MAIN_H */
