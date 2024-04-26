@@ -7,12 +7,11 @@
 void execute_command(char *command) {
     pid_t pid;
     int status;
-    
+    char *args[] = {command, "/var", NULL};
     pid = fork();
 
     if (pid == 0) {
         if (strcmp(command, "./hbtn_ls") == 0) {
-            char *args[] = {command, "/var", NULL};
             execv(command, args);
             perror(command);
             exit(EXIT_FAILURE);
