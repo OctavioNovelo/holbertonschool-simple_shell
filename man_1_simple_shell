@@ -1,1 +1,29 @@
-man page
+.TH man_1_simple_shell "April 26, 2024" "1.0" "C - simple shell man page"
+
+.SH NAME
+.B simple_shell
+- simple UNIX command interpreter made in C
+
+.SH SYNOPSIS
+$ /shell [options] [file]
+
+.SH Description
+simple_shell is a command language interpreter that executes commands read from the standard input.
+
+.SH RETURN VALUE
+Returns void
+
+.SH OPTIONS
+.B simple_shell
+Command options will be typed in the terminal.
+
+.SH example
+./shell [command] [options] 
+$ ls
+
+.SH BUGS
+No know bugs.
+
+.SH AUTHOR
+Octavio Novelo & Diego Ceron
+
