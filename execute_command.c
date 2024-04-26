@@ -5,14 +5,15 @@
 void execute_command(char *command) {
     pid_t pid;
     int status;
-    
     pid = fork();
 
     if (pid == 0) {
        
         if (strcmp(command, "./hbtn_ls") == 0) {
-            
-            char *args[] = {command, "/var", NULL};
+            char **args = malloc(sizeof(char *) * 3);
+	    args[0] = command;
+            args[1] = "/var";
+            args[2] = NULL;
             execv(command, args);
             perror(command); 
             exit(EXIT_FAILURE);
