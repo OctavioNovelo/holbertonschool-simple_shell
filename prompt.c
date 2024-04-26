@@ -5,6 +5,9 @@ void prompt() {
     char *line = NULL;
     size_t len = 0;
     ssize_t str;
+    char *token = strtok(line, " ");
+         char *args[100];
+         int i = 0;
 
     while (1) {
         printf("$ ");
@@ -20,10 +23,7 @@ void prompt() {
 	if (strcmp(line, "EXIT") == 0 || strcmp(line, "exit") == 0) {
             break;
         }
-	char *token = strtok(line, " ");
-	 char *args[100];
-	 int i = 0;
-
+	
 	 while (token != NULL) {
             args[i] = token;
             i++;
