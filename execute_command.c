@@ -1,31 +1,14 @@
 #include "main.h"
 
-/**
- * execute_command - Executes a command
- * @command: A string
- */
-
-void execute_command(char *command) {
+void execute_command(char **args) {
     pid_t pid;
     int status;
-    char *args[3];
-    
+
     pid = fork();
 
-    if (pid == 0)
-      {
-	if (strcmp(command, "./hbtn_ls") == 0) {
-	  args[0] = "/bin/cp";  /** El comando cp para copiar el archivo **/
-            args[1] = "/bin/ls";  /** El archivo que vamos a copiar **/
-            args[2] = "./hbtn_ls"; /** El destino donde vamos a copiar el archivo **/
-            args[3] = NULL;       /** Terminador del array de argumentos **/
-        } else {
-            args[0] = command;
-            args[1] = NULL;
-        }
-
-        if (execv(args[0], args) == -1) {
-            perror("execv");
+    if (pid == 0) {
+        if (execvp(args[0], args) == -1) {
+            perror("execvp");
             exit(EXIT_FAILURE);
         }
     } else if (pid < 0) {
