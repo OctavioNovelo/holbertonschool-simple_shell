@@ -20,6 +20,7 @@ Command options will be typed in the terminal.
 .SH example
 ./shell [command] [options] 
 $ ls
+$ pwd
 
 .SH BUGS
 No know bugs.
